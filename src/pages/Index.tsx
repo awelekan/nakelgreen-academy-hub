@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, Star, MessageSquare } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from 'react-router-dom';
 
 const courses = [
   {
@@ -54,6 +55,7 @@ const stats = [
 
 const Index = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
@@ -64,10 +66,7 @@ const Index = () => {
   }, []);
 
   const handleGetStarted = () => {
-    toast({
-      title: "Welcome to Nakelgreen!",
-      description: "We'll contact you shortly about our courses.",
-    });
+    navigate('/register');
   };
 
   return (
